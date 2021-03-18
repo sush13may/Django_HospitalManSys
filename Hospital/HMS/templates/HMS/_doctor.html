@@ -1,0 +1,57 @@
+<div class="jumbotron ">
+    <center>
+<table>
+    <tr>
+        <td width="50px">
+
+            <strong>Sr.No.</strong>
+        </td>
+        <td>
+            <strong>Doctor Name</strong>
+        </td>
+        <td>
+            <strong>Department</strong>
+        </td>
+        <td>
+            <strong>Date of joining</strong>
+        </td>
+        <td>
+            <strong>Specialist</strong>
+        </td>
+        <td>
+            <strong>Email</strong>
+        </td>
+    </tr>
+{% for obj in object_list %}
+<tr>
+    <td>
+
+    </td>
+    <td>
+        {{obj.name}}
+    </td>
+    <td>
+        {{obj.department}}
+    </td>
+    <td>
+        {{obj.doj}}
+    </td>
+    <td>
+        {{obj.specialist}}
+    </td>
+    <td>
+        {{obj.email}}
+    </td>
+
+</tr>
+{% empty %}
+    <tr>
+        <td>
+            No Department
+        </td>
+    </tr>
+
+{% endfor %}
+</table>
+        </center>
+    </div>

@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class ="container">
+    <div class="jumbotron">
+        <div class="patient_staff" style="margin-top:200px; margin-left:400px">
+        <a class ="btn btn-large btn-primary" href="{% url 'user_registration:register' 'P' %}">I'm a Patient</a>
+        <a class ="btn btn-success" href="{% url 'user_registration:register' 'S' %}">I'm a Staff</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+
+<h1 class="heading"><strong><center>Doctor List:</center></strong></h1>
+<div class="container">
+    <form action="{% url 'HMS:doctor_search' %}" method="GET">
+        {% csrf_token %}
+<!--     <label for="dname">By Doctor Name</label>-->
+     <input type="text" name="q" placeholder="search" value="{{request.GET.q}}">
+        <input type="submit" class="btn btn-primary" name="submit" value="Search">
+    </form>
+</div>
+{% if submitbutton %}
+<h2>Result for the {{request.GET.q}}</h2>
+{% if object_list %}
+   {% include 'HMS/_doctor.html'%}
+{% else %}
+    No Result found
+{% endif %}
+{% else %}
+{% include 'HMS/_doctor.html' %}
+{% endif %}
+{% endblock %}

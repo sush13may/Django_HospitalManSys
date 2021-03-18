@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container">
+    <form action="{% url 'HMS:doctor_search' %}" method="GET">
+        {% csrf_token %}
+<!--     <label for="dname">By Doctor Name</label>-->
+     <input type="text" name="q" placeholder="search" value="{{request.GET.q}}">
+        <input type="submit" class="btn btn-primary" name="submit" value="Search">
+    </form>
+</div>
+{% if submitbutton %}
+<h2>Result for the {{request.GET.q}}</h2>
+{% if object_list %}
+   {% include 'HMS/_doctor.html'%}
+{% else %}
+    No Result found
+{% endif %}
+{% endif %}
+
+
+<!--<label for="dept">Department</label>-->
+<!--<input type="text" id="dept">-->
+<!--<label for="doj">Date of joining</label>-->
+<!--<input type="text" id="doj">-->
+<!--<label for="email">Email</label>-->
+<!--<input type="text" id="email">-->
+
+{% endblock %}

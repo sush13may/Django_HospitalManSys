@@ -1,0 +1,64 @@
+<div class="jumbotron ">
+    <center>
+<table>
+    <tr>
+        <td width="50px">
+
+            <strong>Sr.No.</strong>
+        </td>
+        <td>
+            <strong>Patient Name</strong>
+        </td>
+        <td>
+            <strong>Gender</strong>
+        </td>
+        <td>
+            <strong>Date of Birth</strong>
+        </td>
+        <td>
+            <strong>Mobile</strong>
+        </td>
+        <td>
+            <strong>Email</strong>
+        </td>
+        <td>
+            <strong>Doctor</strong>
+        </td>
+    </tr>
+{% for obj in object_list %}
+<tr>
+    <td>
+
+    </td>
+    <td>
+        <input type="hidden" value={{obj.id}}>
+        <a href="{% url 'HMS:edit_patient' pk=obj.id %}">{{obj.name}}</a>
+    </td>
+    <td>
+        {{obj.gender}}
+    </td>
+    <td>
+        {{obj.dob}}
+    </td>
+    <td>
+        {{obj.mobile}}
+    </td>
+    <td>
+        {{obj.email}}
+    </td>
+    <td>
+        {{obj.doctor}}
+    </td>
+
+</tr>
+{% empty %}
+    <tr>
+        <td>
+            No Patient
+        </td>
+    </tr>
+
+{% endfor %}
+</table>
+        </center>
+    </div>

@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+<div class ="bg-light p-5 rounded-lg m-3" >
+<form action="" method="POST" style="padding-top:20px; padding-left:80px">
+    {% csrf_token %}
+    {{main_form|crispy}
+    {{form|crispy}}
+    <input type="submit" class="btn btn-primary" value="Register">
+</form></div>
+    </div>
+{% endblock %}

@@ -1,0 +1,36 @@
+<div class="jumbotron ">
+    <center>
+<table>
+    <thead>
+    <tr>
+        <th width="50px"><strong>Sr.no.</strong></th>
+        <th>
+            <strong>Department Name |</strong>
+        </th>
+        <th>
+            <strong>Location</strong>
+        </th>
+    </tr>
+    </thead>
+{% for obj in object_list %}
+    <tbody>
+<tr>
+    <td></td>
+    <td>
+        {{obj.department_name}}
+    </td>
+    <td>
+        {{obj.location}}
+    </td>
+</tr>
+{% empty %}
+    <tr>
+        <td>
+            No Department
+        </td>
+    </tr>
+</tbody>
+{% endfor %}
+</table>
+        </center>
+    </div>

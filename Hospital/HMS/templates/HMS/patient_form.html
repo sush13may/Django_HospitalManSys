@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+<h1>Fill Patient Detail</h1>
+   {% if messages %}
+<ul>
+	{% for message in messages %}
+	   <li>{{ message }}</li>
+
+	{% endfor %}
+</ul>
+{% endif %}
+</div>
+<div class="container">
+    <form action="{% url 'HMS:create_patient' %}" method="Post">
+        {% csrf_token %}
+       {{form|crispy}}
+<!--        <label for="doctor_name">Doctor</label>-->
+<!--        <select name="doctor_name" id="">-->
+<!--            {% for opt in doctor_list %}-->
+<!--            <option value={{doctor_list.id}}>{{doctor_list.name}}</option>-->
+<!--            {% empty %}-->
+<!--            <option value="">No Doctor </option>-->
+<!--            {% endfor %}-->
+        </select>
+        <div>
+            <input type="submit" class="btn btn-primary btn-large" name="save" value='Save'>
+            <input type="submit" class="btn btn-success" name="save_add" value="Save & Add more">
+        </div>
+    </form>
+
+</div>
+{% endblock %}

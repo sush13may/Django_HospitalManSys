@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+<h1>Patient Detail
+     <span class ="container" id="editbutton" style="padding-left: 1000px">
+        <input type="submit" class="btn btn-warning btn-large pull-right" value='Edit'>
+    </span></h1>
+</div>
+
+<div class="container">
+
+<fieldset id="fldset" disabled="disabled">
+    <form action="{% url 'HMS:patient_list' %}"  method = POST>
+        {% csrf_token %}
+        {{form|crispy}}
+
+        <div class="row">
+            <div class="col-lg-6">
+                <span class="pull-left">
+                    {{object.pk}}
+                    <a href="{% url 'HMS:patient_update' pk=object.pk %}"></a>
+            <input type="submit" class="btn btn-warning btn-large" value='Update'>
+                    </span>
+       </div>
+            <div class="col-lg-6">
+                <span style="padding-left:500px" class="pull-right">
+                    <a href="{% url 'HMS:patient_list' %}" class="btn btn-primary btn-large justify-content-md-end" >Cancel
+                </a></span>
+                </div>
+        </div>
+    </form>
+</fieldset>
+
+</div>
+{% endblock %}
